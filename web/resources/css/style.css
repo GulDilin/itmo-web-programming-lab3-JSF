@@ -1,0 +1,159 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+}
+body{
+    background-color: #F1EFEF;
+    color: white;
+    width: 100vw;
+    display: flex;
+    overflow-x: hidden;
+    flex-direction: column;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2vh;
+
+}
+
+body, html, p, #footer, div {
+	width: 100%;
+    text-align: left;
+    font-family: 'Pacifico', cursive;
+}
+#header, #footer >p {
+    width: 100%;
+    font-size: 200%;
+    text-align: center;
+}
+
+#header {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#header > span{
+    padding: 1%;
+    font-style: italic;
+}
+
+#content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 100vh;
+}
+
+
+.plot {
+    display: flex;
+    width: 300px;
+    height: 300px;
+    /*min-width: 350px;*/
+    /*min-height: 350px;*/
+    margin: 1% auto;
+    background-color: white;
+    padding: 2%;
+    border: 3px solid black;
+    border-radius: 40px;
+}
+svg{
+    margin: auto auto;
+    display: block;
+    text-align: right;
+    background-color: white;
+
+}
+svg line{
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: dash 1s 0s linear forwards;
+
+}
+
+svg rect:hover,polygon:hover,path:hover{
+        fill:blue;
+        transition-duration: 0.4s;
+}
+svg circle{
+    animation: appear 0.5s 0s linear forwards;
+    transition-duration: 0.6s;
+
+}
+#header, #footer {
+    background: #4F0DAF;
+    box-shadow: 1em -200px 100px -120px #33055A  inset;
+    transition-duration: 3s;
+}
+
+#header:hover{
+    background: #D273A7;
+    box-shadow: 0 -200px 100px -100px #8032CD inset;
+}
+#footer:hover {
+    background: #D273A7;
+    box-shadow: 0 -200px 100px -100px #8032CD inset;
+}
+
+@keyframes full-opacity-anim {
+    from {
+        fill-opacity: 0;
+    }
+    to {
+        stroke-dashoffset: 0;
+        fill-opacity: 1;
+    }
+}
+
+@keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes dash {
+    0% {
+        fill-opacity: 0;
+    }
+    50% {
+        fill-opacity: .10;
+    }
+    60% {
+        fill-opacity: .15;
+    }
+    70% {
+        fill-opacity: .20;
+    }
+    80% {
+        fill-opacity: .35;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+        fill-opacity: .40;
+    }
+}
+
+tbody{
+    min-width: 300px;
+    min-height: 300px;
+    width: 15vh;
+}
+tr {
+    height: 15vh;
+    min-height: 50px;
+}
+
+td{
+    min-width: 15vh;
+    min-height: 50px;
+}
+
+table {
+  background-color: #ff33cc;
+}

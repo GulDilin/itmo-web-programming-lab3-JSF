@@ -10,6 +10,8 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="jstl-1.1.0" />
           <element id="library" level="project" name="javax.faces-2.2.1" />
+          <element id="library" level="project" name="jsch-0.1.55" />
+          <element id="library" level="project" name="postgresql-42.2.5" />
         </element>
       </element>
     </root>

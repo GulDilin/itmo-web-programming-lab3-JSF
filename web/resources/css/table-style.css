@@ -1,0 +1,15 @@
+.table {
+	background: #B1AEAE;
+	line-height: 2;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
+	margin: 20px auto;
+}
+.table caption {
+	background: #2B2A2A;
+}
+.table th {
+	width: 0.5%;
+	background: dimgray;
+}

@@ -8,6 +8,8 @@
 <h:head>
     <title>Lab 3</title>
     <h:outputStylesheet name="style.css" library="css" />
+    <h:outputStylesheet name="form-style.css" library="css" />
+    <h:outputStylesheet name="checkbox-style.css" library="css" />
 </h:head>
 
 <h:body>
@@ -21,6 +23,11 @@
 
         <div id="content">
             <ui:insert name="content" >
+<!--                <div class="plot">-->
+<!--                    <ui:insert name="plot" >-->
+<!--                        <ui:include src="templPlot.xhtml" />-->
+<!--                    </ui:insert>-->
+<!--                </div>-->
                 <ui:include src="templContent.xhtml" />
             </ui:insert>
         </div>

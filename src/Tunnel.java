@@ -1,4 +1,5 @@
 import com.jcraft.jsch.*;
+import netscape.javascript.JSException;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -56,7 +57,7 @@ public class Tunnel {
      *
      * @return assigned port from connection
      */
-    public int connect() {
+    public int connect() throws JSchException{
         JSch jsch = new JSch();
         try {
             Session session = jsch.getSession(user, host, port);
@@ -81,10 +82,10 @@ public class Tunnel {
 
         } catch (JSchException e) {
             System.out.println("SSH connection error");
-            e.printStackTrace();
+//            e.printStackTrace();
+            throw e;
         }
-        exit(-1);
-        return -1;
+//        exit(-1);
     }
 
     class localUserInfo implements UserInfo {
@@ -111,61 +112,6 @@ public class Tunnel {
         }
 
         public void showMessage(String message) {
-        }
-    }
-
-    public static void main(String[] args) throws UnknownHostException {
-        System.out.println("helios");
-        System.out.println(InetAddress.getByName("helios.se.ifmo.ru").toString().split("/")[1]);
-        System.out.println("localhost");
-        System.out.println(InetAddress.getByName("localhost").toString().split("/")[1]);
-        Connection connection = null;
-
-        String dbName = "studs";
-        int lPort = 9080;
-        try {
-            Tunnel tunnel = new Tunnel("helios.se.ifmo.ru",
-                    "user",
-                    "sshPass",
-                    2222,
-                    "pg",
-                    lPort,
-                    5432);
-            int assignPort = tunnel.connect();
-            if (assignPort == -1) exit(-1);
-            Class.forName("org.postgresql.Driver");
-            try {
-                System.out.println("Try to connect database...");
-                connection = DriverManager
-                        .getConnection("jdbc:postgresql://localhost:" + lPort + "/" + dbName,
-                                "user",
-                                "password");
-
-                System.out.println("Database connected!");
-
-            } catch (NullPointerException | SQLException ex) {
-                System.out.println("Database connection error");
-                ex.printStackTrace();
-                exit(-1);
-            }
-        } catch (ClassNotFoundException e) {
-            System.out.println("PSQL Driver loading error");
-            exit(-1);
-        }
-
-        if (connection != null) {
-            try {
-                Statement stmt = connection.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM users");
-                while (rs.next()) {
-                    String str = rs.getString("USER_ID") + ": " + rs.getString(2);
-                    System.out.println(str);
-                }
-                stmt.close();
-                rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
     }
 }

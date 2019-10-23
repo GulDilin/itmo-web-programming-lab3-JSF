@@ -1,3 +1,5 @@
+import com.jcraft.jsch.JSchException;
+
 import java.sql.*;
 
 public class DataBaseManager {
@@ -10,14 +12,32 @@ public class DataBaseManager {
     private String rhost = "pg";
     private String user;
     private String password;
+    private boolean isConnect = false;
 
     public DataBaseManager(String dbName, int lPort) {
         statement = null;
         user = "s264449";
         password = "cfv571";
         this.lPort = lPort;
-        tunnel = new Tunnel(host, "user", "password", 2222, rhost, lPort, 5432);
-        tunnel.connect();
+        int i = 1;
+        while (!isConnect) {
+            try {
+                tunnel = new Tunnel(host, "user", "password", 2222, rhost, this.lPort, 5432);
+                tunnel.connect();
+                isConnect = true;
+
+            } catch (JSchException e) {
+                this.lPort+= 15;
+                System.out.println("SSH tunneling error. Trying new local port: " + this.lPort);
+                System.out.println(i);
+                isConnect = false;
+                i--;
+                if (i == 0) {
+                    System.out.println("Can't connect SSH tunnel.");
+                    break;
+                }
+            }
+        }
         try {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection("jdbc:postgresql://localhost:" + lPort + "/" + dbName, user, password);
@@ -37,7 +57,7 @@ public class DataBaseManager {
             if (statement != null) {
                 result = "";
                 ResultSet rs = statement.executeQuery(BDQuerys.GET_ALL.getTextQuery());
-                while (rs.next()){
+                while (rs.next()) {
                     result += rs.getString("color") + " ";
                 }
             }

@@ -10,6 +10,62 @@
         <ui:define name="content">
             <h1>Стартовая страница JSF</h1>
             Перейти на страницу <a href="">#{db.resultAll}</a>
+            <h:form>
+                <h:inputText required="true" maxlength="8" id="x"></h:inputText>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <h:selectBooleanCheckbox id="a"></h:selectBooleanCheckbox>
+                            <h:outputLabel for="a"></h:outputLabel>
+                        </td>
+                        <td>
+                            <h:selectBooleanCheckbox id="b"></h:selectBooleanCheckbox>
+                            <h:outputLabel for="b"></h:outputLabel>
+                        </td>
+                        <td>
+                            <h:selectBooleanCheckbox id="c"></h:selectBooleanCheckbox>
+                            <h:outputLabel for="c"></h:outputLabel>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:selectBooleanCheckbox id="d"></h:selectBooleanCheckbox>
+                            <h:outputLabel for="d"></h:outputLabel>
+                        </td>
+                        <td>
+                            <h:selectBooleanCheckbox id="e"></h:selectBooleanCheckbox>
+                            <h:outputLabel for="e"></h:outputLabel>
+                        </td>
+                        <td>
+                            <h:selectBooleanCheckbox id="q"></h:selectBooleanCheckbox>
+                            <h:outputLabel for="q"></h:outputLabel>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:selectBooleanCheckbox id="w"></h:selectBooleanCheckbox>
+                            <h:outputLabel for="w"></h:outputLabel>
+                        </td>
+                        <td>
+                            <h:selectBooleanCheckbox id="f"></h:selectBooleanCheckbox>
+                            <h:outputLabel for="f"></h:outputLabel>
+                        </td>
+                        <td>
+                            <h:selectBooleanCheckbox id="r"></h:selectBooleanCheckbox>
+                            <h:outputLabel for="r"></h:outputLabel>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h:commandButton></h:commandButton>
+                <div class="form-buttons">
+                    <h:button></h:button>
+                    <h:button></h:button>
+                </div>
+            </h:form>
+            <ui:include src="template/plot.xhtml"></ui:include>
         </ui:define>
     </ui:composition>
 </h:body>

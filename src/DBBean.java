@@ -9,7 +9,7 @@ public class DBBean {
     private String resultAll;
 
     public DBBean(){
-        manager = new DataBaseManager("studs", 5454);
+        manager = new DataBaseManager("studs", 8454);
     }
 
     public String getResultAll() {

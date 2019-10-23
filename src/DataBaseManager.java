@@ -22,7 +22,7 @@ public class DataBaseManager {
         int i = 1;
         while (!isConnect) {
             try {
-                tunnel = new Tunnel(host, "user", "password", 2222, rhost, this.lPort, 5432);
+                tunnel = new Tunnel(host, "s264449", "cfv571", 2222, rhost, this.lPort, 5432);
                 tunnel.connect();
                 isConnect = true;
 

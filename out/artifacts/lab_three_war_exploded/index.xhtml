@@ -5,61 +5,42 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h:outputScript library="js" name="valid.js"></h:outputScript>
+    <h:outputScript library="js" name="plotChange.js"></h:outputScript>
+</h:head>
 <h:body>
     <ui:composition template="template/templLayout.xhtml">
         <ui:define name="content">
             <h1>Стартовая страница JSF</h1>
             Перейти на страницу <a href="">#{db.resultAll}</a>
             <h:form>
-                <h:inputText required="true" maxlength="8" id="x"></h:inputText>
-                <table>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <h:selectBooleanCheckbox id="a"></h:selectBooleanCheckbox>
-                            <h:outputLabel for="a"></h:outputLabel>
-                        </td>
-                        <td>
-                            <h:selectBooleanCheckbox id="b"></h:selectBooleanCheckbox>
-                            <h:outputLabel for="b"></h:outputLabel>
-                        </td>
-                        <td>
-                            <h:selectBooleanCheckbox id="c"></h:selectBooleanCheckbox>
-                            <h:outputLabel for="c"></h:outputLabel>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h:selectBooleanCheckbox id="d"></h:selectBooleanCheckbox>
-                            <h:outputLabel for="d"></h:outputLabel>
-                        </td>
-                        <td>
-                            <h:selectBooleanCheckbox id="e"></h:selectBooleanCheckbox>
-                            <h:outputLabel for="e"></h:outputLabel>
-                        </td>
-                        <td>
-                            <h:selectBooleanCheckbox id="q"></h:selectBooleanCheckbox>
-                            <h:outputLabel for="q"></h:outputLabel>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h:selectBooleanCheckbox id="w"></h:selectBooleanCheckbox>
-                            <h:outputLabel for="w"></h:outputLabel>
-                        </td>
-                        <td>
-                            <h:selectBooleanCheckbox id="f"></h:selectBooleanCheckbox>
-                            <h:outputLabel for="f"></h:outputLabel>
-                        </td>
-                        <td>
-                            <h:selectBooleanCheckbox id="r"></h:selectBooleanCheckbox>
-                            <h:outputLabel for="r"></h:outputLabel>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                <h:inputText onchange="valid(this)" required="true" maxlength="8" id="x"></h:inputText>
+                <div class="check-box-container">
+                    <div class="check-box">
+                        <h:selectBooleanCheckbox id="a" name="y1"></h:selectBooleanCheckbox>
+                        <h:outputLabel for="a" style="content: '1'"></h:outputLabel>
+                    </div>
 
+                    <div class="check-box">
+                        <h:selectBooleanCheckbox id="b" name="y2"></h:selectBooleanCheckbox>
+                        <h:outputLabel for="b" style="content: '2'"></h:outputLabel>
+                    </div>
+                    <div class="check-box">
+                        <h:selectBooleanCheckbox id="c"></h:selectBooleanCheckbox>
+                        <h:outputLabel for="c" style="content: '3'"></h:outputLabel>
+                    </div>
+                    <div class="check-box">
+                        <h:selectBooleanCheckbox id="d"></h:selectBooleanCheckbox>
+                        <h:outputLabel for="d" style="content: '4'"></h:outputLabel>
+                    </div>
+                    <div class="check-box">
+                        <h:selectBooleanCheckbox id="e"></h:selectBooleanCheckbox>
+                        <h:outputLabel for="e" style="content: '5'"></h:outputLabel>
+                    </div>
+                </div>
                 <h:commandButton></h:commandButton>
+                <label id="error-message"></label>
                 <div class="form-buttons">
                     <h:button></h:button>
                     <h:button></h:button>

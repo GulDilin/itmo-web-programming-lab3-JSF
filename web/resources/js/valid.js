@@ -1,21 +1,16 @@
 function valid(element) {
-
-
-    const X_field = document.getElementById("x");
-    check_length(element)
+    console.log("try valid")
     const errmsg = document.getElementById("error-message");
     const submit_btn = document.getElementById("submit-btn");
-    var X = X_field.value.replace(/,/, '.');
-    // X.replace(/-/, '');
-
-    var isValid = isNumber(R) && isNumber(X);
-    var isValid = isValid && (R < 4) && (R > 1) && (X < 3) && (X > -5);
+    var X = element.value.replace(/,/, '.');
+    var isValid = isNumber(X);
+    var isValid = isValid && (X < 5) && (X > -5);
     if (!isNumber(X)) {
-        X_field.style.borderColor = "red";
+        element.style.borderColor = "red";
     } else {
-        X_field.style.borderColor = "green";
+        element.style.borderColor = "green";
     }
-    // alert(isValid);
+
     if (!isValid) {
         errmsg.textContent = "Error";
         submit_btn.disabled = true;
@@ -29,11 +24,4 @@ function valid(element) {
 
 function isNumber(n) {
     return !isNaN(parseFloat(n)) && !isNaN(n - 0)
-}
-
-function check_length(element) {
-    const MAX = 8;
-    if (element.value.length > MAX) {
-        element.value = element.value.substr(0, MAX);
-    }
 }

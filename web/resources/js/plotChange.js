@@ -33,9 +33,12 @@ function getDotCoor() {
     // sendRequest(x, y, R);
 }
 
-// function changeDotPos() {
-//     for
-//         }
+function changeDotPos() {
+    let dotsList = document.querySelectorAll("svd circle");
+    dotsList.forEach(function (dot) {
+        let x_dot
+    })
+}
 
 // document.getElementById("svg-plot").onclick = getDotCoor;
 

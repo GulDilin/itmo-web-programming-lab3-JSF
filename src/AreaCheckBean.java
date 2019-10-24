@@ -8,6 +8,8 @@ public class AreaCheckBean {
     private String x = "";
     private String y = "0";
     private String[] r;
+    private int currR = 0;
+    private int oldR = 0;
     private boolean r1 = false;
     private boolean r2 = false;
     private boolean r3 = false;
@@ -149,6 +151,14 @@ public class AreaCheckBean {
         r5 = value;
     }
 
+    public void setOldR(int oldR) {
+        this.oldR = oldR;
+    }
+
+    public void setCurrR(int currR) {
+        this.currR = currR;
+    }
+
     public boolean getR1() {
         return r1;
     }
@@ -169,6 +179,13 @@ public class AreaCheckBean {
         return r5;
     }
 
+    public int getOldR() {
+        return oldR;
+    }
+
+    public int getCurrR() {
+        return currR;
+    }
 
     public String getResult() {
         return result;

@@ -81,8 +81,8 @@ input[type="text"]:hover, input[type="text"]:focus  {
 }
 
 input[type="submit"]{
-    width: 20vw;
-    height: 10vh;
+    width: 10vw;
+    height: 8vh;
     border-radius: 10px;
 }
 

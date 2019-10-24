@@ -65,6 +65,7 @@ public class AreaCheckBean {
     }
 
     public void setY(String y) {
+        System.out.println("Recieving Y! " + y);
         try {
             double value = Double.parseDouble(y);
             if (value >= -2 || value <= 2) {

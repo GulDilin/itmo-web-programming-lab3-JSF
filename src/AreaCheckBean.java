@@ -20,6 +20,7 @@ public class AreaCheckBean {
 
     public void checkArea() {
         setR();
+        setX(x);
         double xValue = Double.parseDouble(x);
         double yValue = Double.parseDouble(y);
         for (int i = 0; i < r.length; ++i) {

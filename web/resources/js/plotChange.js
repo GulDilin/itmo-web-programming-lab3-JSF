@@ -37,7 +37,7 @@ function getDotCoor() {
 //     for
 //         }
 
-document.getElementById("svg-plot").onclick = getDotCoor;
+// document.getElementById("svg-plot").onclick = getDotCoor;
 
 function sendRequest(x, y, r) {
     console.log("1");

@@ -36,6 +36,10 @@ form p{
     width: 23vw;
 }
 
+.check-box-container + label{
+    width: 20vw;
+}
+
 table {
     margin: auto auto;
     padding: 3vh;

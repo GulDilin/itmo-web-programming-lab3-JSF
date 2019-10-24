@@ -67,7 +67,7 @@ public class DataBaseManager {
         return result;
     }
 
-    public boolean addDot(double x, double y, int r, boolean isInArea){
+    public boolean addDot(double x, double y, int r, String isInArea){
         try {
             if (statement != null) {
                 statement.execute("INSERT into dots (x, y, r, isinarea) VALUES (" + x + ", " + y + ", " + r + ", " + isInArea);

@@ -3,7 +3,7 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean(name = "validation", eager = true)
 @ApplicationScoped
-public class AreaCheckBean {
+public class ControllerBean {
 
     private String x = "0";
     private String y = "0";
@@ -15,28 +15,25 @@ public class AreaCheckBean {
     private boolean r5 = false;
     private String result = "";
 
-    public AreaCheckBean() {
+    private DataBaseManager manager = null;
+
+    public ControllerBean() {
+        manager = new DataBaseManager("studs", 8454);
     }
 
     public void checkArea(String y) {
         try {
-            setY(y);
+            y = AreaValidator.validateY(y);
             setR();
-            setX(x);
+            x = AreaValidator.validateX(x);
+            result = AreaValidator.checkArea(x, y, r);
         } catch (NumberFormatException e) {
-            this.result = "Incorrect value(s)!";
+            result = "Incorrect value(s)!";
+            resetBean();
         }
-        double xValue = Double.parseDouble(x);
-        double yValue = Double.parseDouble(y);
-
-        double rValue = Double.parseDouble(r);
-        if (result.equals("") && (checkRectangle(xValue, yValue, rValue) || checkCircle(xValue, yValue, rValue) || checkTriangle(xValue, yValue, rValue))) {
-            result = "TRUE";
-        } else if (result.equals("")) {
-            result = "FALSE";
-        }
-        //TODO write result and arguments to DB
         System.out.println("X: " + x + "\nY: " + y + "\nR: " + r + "\nResult: " + result);
+        manager.addDot(Double.parseDouble(x),  Double.parseDouble(y),  Integer.getInteger(x), result);
+        resetBean();
     }
 
     public void resetBean() {
@@ -46,23 +43,8 @@ public class AreaCheckBean {
         result = "";
     }
 
-    private boolean checkRectangle(double x, double y, double r) {
-        return (x >= -r) && (x <= 0) && (y >= -0.5 * r) && (y <= 0);
-    }
 
-    private boolean checkCircle(double x, double y, double r) {
-        return (x * x + y * y <= r * r / 4) && (x <= 0) && (y >= 0);
-    }
-
-    private boolean checkTriangle(double x, double y, double r) {
-        return (-2 * x + r >= y) && (x >= 0) && (y >= 0);
-    }
-
-    public void setX(String x) throws NumberFormatException {
-        double value = Double.parseDouble(x);
-        if (value < -5 || value > 5) {
-            throw new NumberFormatException();
-        }
+    public void setX(String x) {
         this.x = x;
     }
 
@@ -70,11 +52,7 @@ public class AreaCheckBean {
         return x;
     }
 
-    public void setY(String y) throws NumberFormatException {
-        double value = Double.parseDouble(y);
-        if (value < -5 || value > 5) {
-            throw new NumberFormatException();
-        }
+    public void setY(String y){
         this.y = y;
     }
 

@@ -15,31 +15,32 @@
             <h1>Стартовая страница JSF</h1>
             Перейти на страницу <a href="">#{db.resultAll}</a>
             <h:form>
-                <h:inputText onchange="valid(this)" required="true" maxlength="8" id="x"></h:inputText>
+                <h:inputText onchange="valid(this)" required="true" maxlength="8" id="x" value="#{validation.x}"></h:inputText>
                 <div class="check-box-container">
+                    <h:outputLabel>R VALUE:</h:outputLabel>
                     <div class="check-box">
-                        <h:selectBooleanCheckbox id="a" name="y1"></h:selectBooleanCheckbox>
-                        <h:outputLabel for="a" style="content: '1'"></h:outputLabel>
+                        <h:selectBooleanCheckbox id="R1" name="R1" value="#{validation.r1}"></h:selectBooleanCheckbox>
+                        <h:outputLabel for="R1">1</h:outputLabel>
                     </div>
 
                     <div class="check-box">
-                        <h:selectBooleanCheckbox id="b" name="y2"></h:selectBooleanCheckbox>
-                        <h:outputLabel for="b" style="content: '2'"></h:outputLabel>
+                        <h:selectBooleanCheckbox id="R2" name="R2" value="#{validation.r1}"></h:selectBooleanCheckbox>
+                        <h:outputLabel for="R2">2</h:outputLabel>
                     </div>
                     <div class="check-box">
-                        <h:selectBooleanCheckbox id="c"></h:selectBooleanCheckbox>
-                        <h:outputLabel for="c" style="content: '3'"></h:outputLabel>
+                        <h:selectBooleanCheckbox id="R3" name="R2" value="#{validation.r1}"></h:selectBooleanCheckbox>
+                        <h:outputLabel for="R3" style="content: '3'">3</h:outputLabel>
                     </div>
                     <div class="check-box">
-                        <h:selectBooleanCheckbox id="d"></h:selectBooleanCheckbox>
-                        <h:outputLabel for="d" style="content: '4'"></h:outputLabel>
+                        <h:selectBooleanCheckbox id="R4" name="R2" value="#{validation.r1}"></h:selectBooleanCheckbox>
+                        <h:outputLabel for="R4" style="content: '4'">4</h:outputLabel>
                     </div>
                     <div class="check-box">
-                        <h:selectBooleanCheckbox id="e"></h:selectBooleanCheckbox>
-                        <h:outputLabel for="e" style="content: '5'"></h:outputLabel>
+                        <h:selectBooleanCheckbox id="R5" name="R2" value="#{validation.r1}"></h:selectBooleanCheckbox>
+                        <h:outputLabel for="R5" id="r5" style="content: '5'">5</h:outputLabel>
                     </div>
                 </div>
-                <h:commandButton></h:commandButton>
+                <h:commandButton action="#{validation.checkArea}"></h:commandButton>
                 <label id="error-message"></label>
                 <div class="form-buttons">
                     <h:button></h:button>
@@ -50,4 +51,5 @@
         </ui:define>
     </ui:composition>
 </h:body>
+
 </html>

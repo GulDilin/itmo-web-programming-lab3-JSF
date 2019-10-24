@@ -81,6 +81,7 @@ public class DataBaseManager {
         return result;
     }
 
+
     public void deleteAll() {
         try {
             if (statement != null) {

@@ -19,4 +19,8 @@ public class DBBean {
     public void setResultAll(String resultAll) {
         this.resultAll = resultAll;
     }
+
+    public boolean addDot(double x, double y, int r, boolean isInArea){
+        return false;
+    }
 }

@@ -27,7 +27,7 @@ public class DataBaseManager {
                 isConnect = true;
 
             } catch (JSchException e) {
-                this.lPort+= 15;
+                this.lPort += 15;
                 System.out.println("SSH tunneling error. Trying new local port: " + this.lPort);
                 System.out.println(i);
                 isConnect = false;
@@ -62,8 +62,20 @@ public class DataBaseManager {
                 }
             }
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
         return result;
+    }
+
+    public boolean addDot(double x, double y, int r, boolean isInArea){
+        try {
+            if (statement != null) {
+                statement.execute("INSERT into dots (x, y, r, isinarea) VALUES (" + x + ", " + y + ", " + r + ", " + isInArea);
+                return true;
+            } else return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

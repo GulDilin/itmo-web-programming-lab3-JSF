@@ -26,7 +26,7 @@ public class AreaCheckBean {
             double rValue = Double.parseDouble(r[i]);
             if (result.equals("") && (checkRectangle(xValue, yValue, rValue) || checkCircle(xValue, yValue, rValue) || checkTriangle(xValue, yValue, rValue))) {
                 result = "TRUE";
-                System.out.println("X: " + x + "\nY: " + y + "\nR: " + r[i] + "\nResult: " + result);
+                //System.out.println("X: " + x + "\nY: " + y + "\nR: " + r[i] + "\nResult: " + result);
                 //TODO write result and arguments to DB
                 result = "";
             }
@@ -65,7 +65,6 @@ public class AreaCheckBean {
     }
 
     public void setY(String y) {
-        System.out.println("Recieving Y! " + y);
         try {
             double value = Double.parseDouble(y);
             if (value >= -2 || value <= 2) {

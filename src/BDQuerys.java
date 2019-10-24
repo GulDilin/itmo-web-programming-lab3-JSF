@@ -1,5 +1,6 @@
 public enum BDQuerys {
-    GET_ALL("SELECT * FROM collection");
+    GET_ALL("SELECT * FROM dots"),
+    DELETE_DOTS("DELETE FROM dots");
 
     private String textQuery;
     private BDQuerys(String textQuery){

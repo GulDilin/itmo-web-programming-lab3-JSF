@@ -5,9 +5,9 @@ import javax.faces.bean.ManagedBean;
 @ApplicationScoped
 public class AreaCheckBean {
 
-    private String x = "";
+    private String x = "0";
     private String y = "0";
-    private String r = "";
+    private String r = "1";
     private boolean r1 = false;
     private boolean r2 = false;
     private boolean r3 = false;
@@ -37,6 +37,12 @@ public class AreaCheckBean {
         }
         //TODO write result and arguments to DB
         System.out.println("X: " + x + "\nY: " + y + "\nR: " + r + "\nResult: " + result);
+    }
+
+    public void resetBean() {
+        x = "0";
+        y = "0";
+        r = "1";
         result = "";
     }
 
@@ -64,9 +70,9 @@ public class AreaCheckBean {
         return x;
     }
 
-    public void setY(String y) throws NumberFormatException{
+    public void setY(String y) throws NumberFormatException {
         double value = Double.parseDouble(y);
-        if (value < -5 || value > 5) {  
+        if (value < -5 || value > 5) {
             throw new NumberFormatException();
         }
         this.y = y;

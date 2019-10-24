@@ -36,8 +36,9 @@ form p{
     width: 23vw;
 }
 
-.check-box-container + label{
+.check-box-container + .check-box-label{
     width: 20vw;
+    text-align: center;
 }
 
 table {

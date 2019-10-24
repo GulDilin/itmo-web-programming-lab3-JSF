@@ -20,6 +20,10 @@ public class AreaCheckBean {
     public AreaCheckBean() {
     }
 
+    public void quack() {
+        System.out.println("QUACK");
+    }
+
     public void checkArea() {
         setR();
         setX(x);
@@ -31,9 +35,7 @@ public class AreaCheckBean {
                 result = "TRUE";
 
                 //TODO write result and arguments to DB
-            }
-            else if(result.equals(""))
-            {
+            } else if (result.equals("")) {
                 result = "FALSE";
             }
             System.out.println("X: " + x + "\nY: " + y + "\nR: " + r[i] + "\nResult: " + result);

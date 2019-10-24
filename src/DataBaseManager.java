@@ -52,13 +52,40 @@ public class DataBaseManager {
     }
 
     public String getAll() {
-        String result = "Nothing";
+        String result = "";
+        String x;
+        String y;
+        String r;
+        int x_dot;
+        int y_dot;
+        int r_dot;
+        String res;
         try {
             if (statement != null) {
                 result = "";
                 ResultSet rs = statement.executeQuery(BDQuerys.GET_ALL.getTextQuery());
                 while (rs.next()) {
-                    result += rs.getString("color") + " ";
+                    try {
+                        res = rs.getString("result");
+                        x = rs.getString("x");
+                        y = rs.getString("y");
+                        r = rs.getString("r");
+                        System.out.println("r = " + r);
+                        r_dot = Integer.parseInt(r);
+                        x_dot = (int) Math.round(Double.parseDouble(x) * 120 / r_dot + 150);
+                        y_dot = (int) Math.round(-Double.parseDouble(y) * 120 / r_dot + 150);
+
+                        if (res.equals("true") || res.equals("false")) {
+                            result += "<circle r=\"3\" cx=\""; //37\" cy=\"61\" id=\"dot\" stroke=\"#AD2D2D\" fill=\"#AD2D2D\" class=\"4\"></circle>"
+                            result += x_dot + "\" cy=\"";
+                            result += y_dot + "\" class=\"";
+                            result += r + "\" ";
+                            result += res.equals("false") ? "stroke=\"green\" fill=\"green\"" : "stroke=\"#AD2D2D\" fill=\"#AD2D2D\"";
+                            result += "></circle>\n";
+                        }
+                    } catch (NumberFormatException ex) {
+
+                    }
                 }
             }
         } catch (SQLException e) {
@@ -67,10 +94,21 @@ public class DataBaseManager {
         return result;
     }
 
-    public boolean addDot(double x, double y, int r, String isInArea){
+
+    public void deleteAll() {
         try {
             if (statement != null) {
-                statement.execute("INSERT into dots (x, y, r, isinarea) VALUES (" + x + ", " + y + ", " + r + ", " + isInArea);
+                statement.execute(BDQuerys.DELETE_DOTS.getTextQuery());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean addDot(double x, double y, int r, String result) {
+        try {
+            if (statement != null) {
+                statement.execute("INSERT into dots (x, y, r, result) VALUES (" + x + ", " + y + ", " + r + ", \''" + result + "\''");
                 return true;
             } else return false;
         } catch (SQLException e) {

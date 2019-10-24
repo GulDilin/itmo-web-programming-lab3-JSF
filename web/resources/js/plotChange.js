@@ -16,7 +16,6 @@ function getDotCoor() {
         dot.setAttribute("r", "3");
         dot.setAttribute("cx", Math.round(x_dot));
         dot.setAttribute("cy", Math.round(y_dot));
-        dot.setAttribute("id", "dot");
         document.getElementById("svg-plot").appendChild(dot);
         dot.setAttribute("stroke", "#AD2D2D");
         dot.setAttribute("fill", "#AD2D2D");

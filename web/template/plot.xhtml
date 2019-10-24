@@ -7,7 +7,11 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <ui:composition>
+<<<<<<< HEAD
     <p:remoteCommand name="sendDot" actionListener="#{controller.plotCheckArea}"></p:remoteCommand>
+=======
+<!--    <p:remoteCommand name="add" action=""></p:remoteCommand>-->
+>>>>>>> upstream/master
     <div class="plot">
         <svg version="1.1"
              baseProfile="full"
@@ -45,6 +49,7 @@
             <path d="M150 150
             L 150 270
             A 120 120, 0, 0, 0, 270 150 Z" fill="#75A9D5" fill-opacity="0.4" stroke="#986E6E"></path>
+            #{db.resultAll}
         </svg>
     </div>
 </ui:composition>

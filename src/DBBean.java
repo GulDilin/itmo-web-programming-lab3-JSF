@@ -20,7 +20,17 @@ public class DBBean {
         this.resultAll = resultAll;
     }
 
-    public boolean addDot(double x, double y, int r, boolean isInArea){
-        return false;
+    public boolean addDot(String s){
+        if (s.equals("")) return false;
+        try {
+            String[] vals = s.split(" ");
+            if (vals.length != 3) return false;
+            double x = Double.parseDouble(vals[0]);
+            double y = Double.parseDouble(vals[1]);
+            int r = Integer.getInteger(vals[2]);
+            return manager.addDot(x, y, r, "ну и срань");
+        } catch (NumberFormatException e){
+            return false;
+        }
     }
 }

@@ -12,6 +12,7 @@
           <element id="library" level="project" name="javax.faces-2.2.1" />
           <element id="library" level="project" name="jsch-0.1.55" />
           <element id="library" level="project" name="postgresql-42.2.5" />
+          <element id="library" level="project" name="primefaces-6.0" />
         </element>
       </element>
     </root>

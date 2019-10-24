@@ -43,8 +43,15 @@
                 <h:commandButton action="#{validation.checkArea}"></h:commandButton>
                 <label id="error-message"></label>
                 <div class="form-buttons">
-                    <h:button></h:button>
-                    <h:button></h:button>
+                    <h:commandButton action="#{validation.setY('-2')}"></h:commandButton>
+                    <h:commandButton action="#{validation.setY('-1.5')}"></h:commandButton>
+                    <h:commandButton action="#{validation.setY('-1')}"></h:commandButton>
+                    <h:commandButton action="#{validation.setY('-0.5')}"></h:commandButton>
+                    <h:commandButton action="#{validation.setY('0')}"></h:commandButton>
+                    <h:commandButton action="#{validation.setY('0.5')}"></h:commandButton>
+                    <h:commandButton action="#{validation.setY('1')}"></h:commandButton>
+                    <h:commandButton action="#{validation.setY('1.5')}"></h:commandButton>
+                    <h:commandButton action="#{validation.setY('2')}"></h:commandButton>
                 </div>
             </h:form>
             <ui:include src="template/plot.xhtml"></ui:include>

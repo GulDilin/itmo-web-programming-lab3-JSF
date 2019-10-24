@@ -22,8 +22,8 @@ function getDotCoor() {
         dot.setAttribute("class", R);
         result = x + " " + y + " " + R;
         sendDot([{name: 'x', value: x}, {name: 'y', value: y}, {name: 'r', value: R}]);
+
     }
-    return result;
 }
 
 function changeDotPos() {

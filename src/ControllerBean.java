@@ -34,7 +34,7 @@ public class ControllerBean {
             resetBean();
         }
         System.out.println("X: " + x + "\nY: " + y + "\nR: " + r + "\nResult: " + result);
-        manager.addDot(Double.parseDouble(x),  Double.parseDouble(y),  Integer.getInteger(x), result);
+        //manager.addDot(Double.parseDouble(x),  Double.parseDouble(y),  Integer.getInteger(x), result);
         resetBean();
     }
 
@@ -54,7 +54,7 @@ public class ControllerBean {
             resetBean();
         }
         System.out.println("X: " + plotX + "\nY: " + plotY + "\nR: " + plotR + "\nResult: " + result);
-        manager.addDot(Double.parseDouble(plotX),  Double.parseDouble(plotY),  Integer.getInteger(plotR), result);
+        //manager.addDot(Double.parseDouble(plotX),  Double.parseDouble(plotY),  Integer.getInteger(plotR), result);
         resetBean();
     }
 

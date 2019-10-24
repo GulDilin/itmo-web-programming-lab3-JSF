@@ -20,17 +20,24 @@ public class AreaCheckBean {
 
     public void checkArea() {
         setR();
+        setX(x);
         double xValue = Double.parseDouble(x);
         double yValue = Double.parseDouble(y);
         for (int i = 0; i < r.length; ++i) {
             double rValue = Double.parseDouble(r[i]);
             if (result.equals("") && (checkRectangle(xValue, yValue, rValue) || checkCircle(xValue, yValue, rValue) || checkTriangle(xValue, yValue, rValue))) {
                 result = "TRUE";
-                //System.out.println("X: " + x + "\nY: " + y + "\nR: " + r[i] + "\nResult: " + result);
+
                 //TODO write result and arguments to DB
-                result = "";
             }
+            else if(result.equals(""))
+            {
+                result = "FALSE";
+            }
+            System.out.println("X: " + x + "\nY: " + y + "\nR: " + r[i] + "\nResult: " + result);
+
         }
+        result = "";
     }
 
     private boolean checkRectangle(double x, double y, double r) {
@@ -77,6 +84,7 @@ public class AreaCheckBean {
             this.y = "0";
             this.result = "Incorrect value(s)!";
         }
+        checkArea();
     }
 
     public String getY() {

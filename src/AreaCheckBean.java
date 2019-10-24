@@ -7,9 +7,7 @@ public class AreaCheckBean {
 
     private String x = "";
     private String y = "0";
-    private String[] r;
-    private int currR = 0;
-    private int oldR = 0;
+    private String r = "";
     private boolean r1 = false;
     private boolean r2 = false;
     private boolean r3 = false;
@@ -20,27 +18,25 @@ public class AreaCheckBean {
     public AreaCheckBean() {
     }
 
-    public void quack() {
-        System.out.println("QUACK");
-    }
-
-    public void checkArea() {
-        setR();
-        setX(x);
+    public void checkArea(String y) {
+        try {
+            setY(y);
+            setR();
+            setX(x);
+        } catch (NumberFormatException e) {
+            this.result = "Incorrect value(s)!";
+        }
         double xValue = Double.parseDouble(x);
         double yValue = Double.parseDouble(y);
-        for (int i = 0; i < r.length; ++i) {
-            double rValue = Double.parseDouble(r[i]);
-            if (result.equals("") && (checkRectangle(xValue, yValue, rValue) || checkCircle(xValue, yValue, rValue) || checkTriangle(xValue, yValue, rValue))) {
-                result = "TRUE";
 
-                //TODO write result and arguments to DB
-            } else if (result.equals("")) {
-                result = "FALSE";
-            }
-            System.out.println("X: " + x + "\nY: " + y + "\nR: " + r[i] + "\nResult: " + result);
-
+        double rValue = Double.parseDouble(r);
+        if (result.equals("") && (checkRectangle(xValue, yValue, rValue) || checkCircle(xValue, yValue, rValue) || checkTriangle(xValue, yValue, rValue))) {
+            result = "TRUE";
+        } else if (result.equals("")) {
+            result = "FALSE";
         }
+        //TODO write result and arguments to DB
+        System.out.println("X: " + x + "\nY: " + y + "\nR: " + r + "\nResult: " + result);
         result = "";
     }
 
@@ -56,80 +52,43 @@ public class AreaCheckBean {
         return (-2 * x + r >= y) && (x >= 0) && (y >= 0);
     }
 
-    public void setX(String x) {
-        try {
-            double value = Double.parseDouble(x);
-            if (value >= -5 || value <= 5) {
-                this.x = value + "";
-            } else {
-                this.x = x;
-                this.result = "Incorrect value(s)!";
-            }
-        } catch (NumberFormatException e) {
-            this.x = "0";
-            this.result = "Incorrect value(s)!";
+    public void setX(String x) throws NumberFormatException {
+        double value = Double.parseDouble(x);
+        if (value < -5 || value > 5) {
+            throw new NumberFormatException();
         }
+        this.x = x;
     }
 
     public String getX() {
         return x;
     }
 
-    public void setY(String y) {
-        try {
-            double value = Double.parseDouble(y);
-            if (value >= -2 || value <= 2) {
-                this.y = value + "";
-            } else {
-                this.y = y;
-                this.result = "Incorrect value(s)!";
-            }
-        } catch (NumberFormatException e) {
-            this.y = "0";
-            this.result = "Incorrect value(s)!";
+    public void setY(String y) throws NumberFormatException{
+        double value = Double.parseDouble(y);
+        if (value < -5 || value > 5) {  
+            throw new NumberFormatException();
         }
-        checkArea();
+        this.y = y;
     }
 
     public String getY() {
         return y;
     }
 
-    private void setR() {
-        int requestNumber = 0;
+    private void setR() throws NumberFormatException {
         if (r1) {
-            requestNumber++;
-        }
-        if (r2) {
-            requestNumber++;
-        }
-        if (r3) {
-            requestNumber++;
-        }
-        if (r4) {
-            requestNumber++;
-        }
-        if (r5) {
-            requestNumber++;
-        }
-        r = new String[requestNumber];
-        for (int i = 0; i < requestNumber; ++i) {
-            if (r1) {
-                r[i] = "1";
-                r1 = false;
-            } else if (r2) {
-                r[i] = "2";
-                r2 = false;
-            } else if (r3) {
-                r[i] = "3";
-                r3 = false;
-            } else if (r4) {
-                r[i] = "4";
-                r4 = false;
-            } else if (r5) {
-                r[i] = "5";
-                r5 = false;
-            }
+            r = "1";
+        } else if (r2) {
+            r = "2";
+        } else if (r3) {
+            r = "3";
+        } else if (r4) {
+            r = "4";
+        } else if (r5) {
+            r = "5";
+        } else {
+            throw new NumberFormatException();
         }
     }
 
@@ -153,14 +112,6 @@ public class AreaCheckBean {
         r5 = value;
     }
 
-    public void setOldR(int oldR) {
-        this.oldR = oldR;
-    }
-
-    public void setCurrR(int currR) {
-        this.currR = currR;
-    }
-
     public boolean getR1() {
         return r1;
     }
@@ -179,14 +130,6 @@ public class AreaCheckBean {
 
     public boolean getR5() {
         return r5;
-    }
-
-    public int getOldR() {
-        return oldR;
-    }
-
-    public int getCurrR() {
-        return currR;
     }
 
     public String getResult() {

@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <ui:composition>
-    <p:remoteCommand command="sendRequest" action="#{controller.plotCheckArea()}"></p:remoteCommand>
+    <p:remoteCommand name="sendDot" actionListener="#{controller.plotCheckArea}"></p:remoteCommand>
     <div class="plot">
         <svg version="1.1"
              baseProfile="full"

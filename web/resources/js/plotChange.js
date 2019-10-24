@@ -6,7 +6,6 @@ function getDotCoor() {
     let y = (150 - y_dot);
     let x = (-150 + x_dot);
 
-
     let isDotAllowed = validCB();
     let result = "";
     if (isDotAllowed) {
@@ -23,7 +22,7 @@ function getDotCoor() {
         dot.setAttribute("fill", "#AD2D2D");
         dot.setAttribute("class", R);
         result = x + " " + y + " " + R;
-        sendRequest([{name:'x', value: x},{name:'y', value: y},{name:'r', value: R}]);
+        sendDot([{name: 'x', value: x}, {name: 'y', value: y}, {name: 'r', value: R}]);
     }
     return result;
 }

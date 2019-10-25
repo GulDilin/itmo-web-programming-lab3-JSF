@@ -1,4 +1,7 @@
 var isXvalid = false;
+let TF = document.querySelector("input[type='text']");
+console.log("x= " + TF);
+TF.oninput = valid(TF);
 
 function valid(element) {
     console.log("try valid")
@@ -65,7 +68,7 @@ function getR() {
     let num = 0;
     let isCheck = false;
     checkboxList.forEach(function (checkbox) {
-        if(!isCheck) {
+        if (!isCheck) {
             num++;
         }
         if (checkbox.checked) {

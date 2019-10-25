@@ -9,7 +9,7 @@ function displayCanvas(){
     var yCenterClock = canvasHTML.height/2;
 
     //Очистка экрана.
-    contextHTML.fillStyle = "#ffffff";
+    contextHTML.fillStyle = "#F1EFEF";
     contextHTML.fillRect(0,0,canvasHTML.width,canvasHTML.height);
 
     //Рисуем контур часов
@@ -90,7 +90,7 @@ function displayCanvas(){
     //Рисуем центр часов
     contextHTML.beginPath();
     contextHTML.strokeStyle =  "#000000";
-    contextHTML.fillStyle = "#ffffff";
+    contextHTML.fillStyle = "#F1EFEF";
     contextHTML.lineWidth = 3;
     contextHTML.arc(xCenterClock, yCenterClock, 5, 0, 2*Math.PI, true);
     contextHTML.stroke();

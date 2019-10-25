@@ -15,9 +15,9 @@ body{
     font-size: 2vh;
 
 }
-
 #clock {
     text-align: center;
+    color: #2B2A2A;
     margin: 0 auto;
     font-size: 50vh;
     font-family: 'Pacifico', cursive;

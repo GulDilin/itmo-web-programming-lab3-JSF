@@ -49,6 +49,13 @@ function changeDotPos() {
             x = x / R;
             x_dot = x + 150;
             y_dot = 150 - y;
+            if (!check((-150 + x_dot) / 120 * R, (150 - y_dot) / 120 * R, R)) {
+                dot.setAttribute("stroke", "#AD2D2D");
+                dot.setAttribute("fill", "#AD2D2D");
+            } else {
+                dot.setAttribute("stroke", "green");
+                dot.setAttribute("fill", "green");
+            }
             dot.setAttribute("cx", Math.round(x_dot));
             dot.setAttribute("cy", Math.round(y_dot));
             dot.setAttribute("class", R);

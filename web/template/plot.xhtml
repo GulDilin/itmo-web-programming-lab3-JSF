@@ -8,10 +8,10 @@
       xmlns:p="http://primefaces.org/ui">
 <f:view>
     <ui:composition>
-        <h:form>
+        <h:form style="display: none">
             <p:remoteCommand update="res-table" name="sendDot" actionListener="#{controller.plotCheckArea}"></p:remoteCommand>
         </h:form>
-        <div class="plot">
+        "<div class="plot">
             <svg version="1.1"
                  baseProfile="full"
                  width="300" height="300"
@@ -47,7 +47,7 @@
                 <polygon points="150,150 210,150 150,30" fill="#75A9D5" fill-opacity="0.4" stroke="#986E6E"/>
                 <path d="M150 150
             L 150 90
-            A 60 60, 0, 0, 0, 90 150 Z" fill="#75A9D5" fill-opacity="0.4" stroke="#986E6E"></path>
+            A 60 60, 0, 0, 0, 90 150 Z" fill="#75A9D5" fill-opacity="0.4" stroke="#986E6E"></path>"
                 <h:outputText escape="false" value="#{db.resultAllDot}"></h:outputText>
             </svg>
         </div>

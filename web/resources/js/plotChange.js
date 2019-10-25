@@ -17,8 +17,13 @@ function getDotCoor() {
         dot.setAttribute("cx", Math.round(x_dot));
         dot.setAttribute("cy", Math.round(y_dot));
         document.getElementById("svg-plot").appendChild(dot);
-        dot.setAttribute("stroke", "#AD2D2D");
-        dot.setAttribute("fill", "#AD2D2D");
+        if (!check(x, y, R)) {
+            dot.setAttribute("stroke", "#AD2D2D");
+            dot.setAttribute("fill", "#AD2D2D");
+        } else {
+            dot.setAttribute("stroke", "green");
+            dot.setAttribute("fill", "green");
+        }
         dot.setAttribute("class", R);
         result = x + " " + y + " " + R;
         sendDot([{name: 'x', value: x}, {name: 'y', value: y}, {name: 'r', value: R}]);
@@ -50,4 +55,21 @@ function changeDotPos() {
 
         })
     }
+}
+
+function check(x, y, r) {
+    return checkCircle(x, y, r) || checkRectangle(x, y, r) || checkTriangle(x, y, r);
+
+}
+
+function checkRectangle(x, y, r) {
+    return (x >= -r) && (x <= 0) && (y >= -0.5 * r) && (y <= 0);
+}
+
+function checkCircle(x, y, r) {
+    return (x * x + y * y <= r * r / 4) && (x <= 0) && (y >= 0);
+}
+
+function checkTriangle(x, y, r) {
+    return (-2 * x + r >= y) && (x >= 0) && (y >= 0);
 }

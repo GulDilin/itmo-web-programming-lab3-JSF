@@ -8,13 +8,9 @@
 <h:outputStylesheet name="table-style.css" library="css"></h:outputStylesheet>
 <f:view>
     <ui:composition>
-        <div class="table-container">
-            <table class="res-table">
-                <caption>Табличка</caption>
-                <tr><th>X</th><th>Y</th><th>R</th><th>RESULT</th></tr>
+
                 <h:outputText id="res-table" escape="false" value="#{db.resultAllTable}"></h:outputText>
-            </table>
-        </div>
+
     </ui:composition>
 </f:view>
 </html>

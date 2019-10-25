@@ -9,7 +9,7 @@
 <f:view>
     <ui:composition>
         <h:form>
-            <p:remoteCommand update="res-table" name="sendDot" actionListener="#{controller.plotCheckArea}"></p:remoteCommand>
+            <p:remoteCommand update="res-table table" name="sendDot" actionListener="#{controller.plotCheckArea}"></p:remoteCommand>
         </h:form>
         <div class="plot">
             <svg version="1.1"

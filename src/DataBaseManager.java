@@ -122,7 +122,7 @@ public class DataBaseManager {
 
     public String dotString(String x, String y, String r, String res){
         return "<circle r=\"3\" cx=\"" + x + "\" cy=\"" + y + "\" class=\"" +  r + "\" "
-                + (res.equals("false")?"stroke=\"green\" fill=\"green\"":"stroke=\"#AD2D2D\" fill=\"#AD2D2D\"")
+                + (res.toLowerCase().equals("true")?"stroke=\"green\" fill=\"green\"":"stroke=\"#AD2D2D\" fill=\"#AD2D2D\"")
                 + "></circle>";
     }
 

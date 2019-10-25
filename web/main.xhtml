@@ -14,29 +14,29 @@
         <ui:define name="content">
             <h:form>
                 <div class="form-label"><h:outputLabel>X VALUE:</h:outputLabel></div>
-                <h:inputText onchange="valid(this)" required="true" maxlength="8" id="x" value="#{validation.x}"></h:inputText>
+                <h:inputText onchange="valid(this)" required="true" maxlength="8" id="x" value="#{controller.x}"></h:inputText>
                 <div class="check-box-container">
                     <div class="form-label"><h:outputLabel>R VALUE:</h:outputLabel></div>
 
                     <div class="check-box">
-                        <h:selectBooleanCheckbox id="R1" name="R1" value="#{validation.r1}" onchange="chooseCB(this),validCB(),changeDotPos()"></h:selectBooleanCheckbox>
+                        <h:selectBooleanCheckbox id="R1" name="R1" value="#{controller.r1}" onchange="chooseCB(this),validCB(),changeDotPos()"></h:selectBooleanCheckbox>
                         <h:outputLabel for="R1">1</h:outputLabel>
                     </div>
 
                     <div class="check-box">
-                        <h:selectBooleanCheckbox id="R2" name="R2" value="#{validation.r2}" onchange="chooseCB(this),validCB(),changeDotPos()"></h:selectBooleanCheckbox>
+                        <h:selectBooleanCheckbox id="R2" name="R2" value="#{controller.r2}" onchange="chooseCB(this),validCB(),changeDotPos()"></h:selectBooleanCheckbox>
                         <h:outputLabel for="R2">2</h:outputLabel>
                     </div>
                     <div class="check-box">
-                        <h:selectBooleanCheckbox id="R3" name="R3" value="#{validation.r3}" onchange="chooseCB(this),validCB(),changeDotPos()"></h:selectBooleanCheckbox>
+                        <h:selectBooleanCheckbox id="R3" name="R3" value="#{controller.r3}" onchange="chooseCB(this),validCB(),changeDotPos()"></h:selectBooleanCheckbox>
                         <h:outputLabel for="R3" style="content: '3'">3</h:outputLabel>
                     </div>
                     <div class="check-box">
-                        <h:selectBooleanCheckbox id="R4" name="R4" value="#{validation.r4}" onchange="chooseCB(this),validCB(),changeDotPos()"></h:selectBooleanCheckbox>
+                        <h:selectBooleanCheckbox id="R4" name="R4" value="#{controller.r4}" onchange="chooseCB(this),validCB(),changeDotPos()"></h:selectBooleanCheckbox>
                         <h:outputLabel for="R4" style="content: '4'">4</h:outputLabel>
                     </div>
                     <div class="check-box">
-                        <h:selectBooleanCheckbox id="R5" name="R5" value="#{validation.r5}" onchange="chooseCB(this),validCB(),changeDotPos()"></h:selectBooleanCheckbox>
+                        <h:selectBooleanCheckbox id="R5" name="R5" value="#{controller.r5}" onchange="chooseCB(this),validCB(),changeDotPos()"></h:selectBooleanCheckbox>
                         <h:outputLabel for="R5" id="r5" style="content: '5'">5</h:outputLabel>
                     </div>
                 </div>
@@ -46,15 +46,15 @@
                 <br></br>
                 <div class="form-label"><h:outputLabel>Y VALUE:</h:outputLabel></div>
                 <div class="form-buttons">
-                    <h:commandButton action="#{validation.checkArea('-2')}" value="-2"></h:commandButton>
-                    <h:commandButton action="#{validation.checkArea('-1.5')}" value="-1.5"></h:commandButton>
-                    <h:commandButton action="#{validation.checkArea('-1')}" value="-1"></h:commandButton>
-                    <h:commandButton action="#{validation.checkArea('-0.5')}" value="-0.5"></h:commandButton>
-                    <h:commandButton action="#{validation.checkArea('0')}" value="0"></h:commandButton>
-                    <h:commandButton action="#{validation.checkArea('0.5')}" value="0.5"></h:commandButton>
-                    <h:commandButton action="#{validation.checkArea('1')}" value="1"></h:commandButton>
-                    <h:commandButton action="#{validation.checkArea('1.5')}" value="1.5"></h:commandButton>
-                    <h:commandButton action="#{validation.checkArea('2')}" value="2"></h:commandButton>
+                    <h:commandButton action="#{controller.checkArea('-2')}" value="-2"></h:commandButton>
+                    <h:commandButton action="#{controller.checkArea('-1.5')}" value="-1.5"></h:commandButton>
+                    <h:commandButton action="#{controller.checkArea('-1')}" value="-1"></h:commandButton>
+                    <h:commandButton action="#{controller.checkArea('-0.5')}" value="-0.5"></h:commandButton>
+                    <h:commandButton action="#{controller.checkArea('0')}" value="0"></h:commandButton>
+                    <h:commandButton action="#{controller.checkArea('0.5')}" value="0.5"></h:commandButton>
+                    <h:commandButton action="#{controller.checkArea('1')}" value="1"></h:commandButton>
+                    <h:commandButton action="#{controller.checkArea('1.5')}" value="1.5"></h:commandButton>
+                    <h:commandButton action="#{controller.checkArea('2')}" value="2"></h:commandButton>
                 </div>
             </h:form>
             <ui:include src="template/plot.xhtml"></ui:include>

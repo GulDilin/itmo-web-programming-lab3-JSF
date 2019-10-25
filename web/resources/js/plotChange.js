@@ -6,7 +6,6 @@ function getDotCoor() {
     let y = (150 - y_dot);
     let x = (-150 + x_dot);
 
-
     let isDotAllowed = validCB();
     let result = "";
     if (isDotAllowed) {
@@ -22,8 +21,9 @@ function getDotCoor() {
         dot.setAttribute("fill", "#AD2D2D");
         dot.setAttribute("class", R);
         result = x + " " + y + " " + R;
+        sendDot([{name: 'x', value: x}, {name: 'y', value: y}, {name: 'r', value: R}]);
+
     }
-    return result;
 }
 
 function changeDotPos() {
@@ -50,23 +50,4 @@ function changeDotPos() {
 
         })
     }
-}
-
-// document.getElementById("svg-plot").onclick = getDotCoor;
-
-function sendRequest(x, y, r) {
-    console.log("1");
-    let http = new XMLHttpRequest();
-    console.log("2");
-    let url = "controller";
-    let params = "x=" + x + "&y=" + y + "&r=" + r;
-
-    http.open('GET', url + '?' + params);
-
-    console.log("3");
-    http.onload = function () {
-        document.location.href = 'index.jsp';
-    };
-    http.send(null);
-    console.log("4");
 }

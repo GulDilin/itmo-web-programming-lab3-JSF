@@ -1,7 +1,9 @@
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import java.util.Map;
 
-@ManagedBean(name = "validation", eager = true)
+@ManagedBean(name = "controller", eager = true)
 @ApplicationScoped
 public class ControllerBean {
 
@@ -32,7 +34,27 @@ public class ControllerBean {
             resetBean();
         }
         System.out.println("X: " + x + "\nY: " + y + "\nR: " + r + "\nResult: " + result);
-        manager.addDot(Double.parseDouble(x),  Double.parseDouble(y),  Integer.getInteger(x), result);
+        //manager.addDot(Double.parseDouble(x),  Double.parseDouble(y),  Integer.getInteger(x), result);
+        resetBean();
+    }
+
+    public void plotCheckArea() {
+        Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+
+        String plotX = params.get("x");
+        String plotY = params.get("y");
+        String plotR = params.get("r");
+
+        try {
+            plotY = AreaValidator.validateY(plotY);
+            plotX = AreaValidator.validateX(plotX);
+            result = AreaValidator.checkArea(plotX, plotY, plotR);
+        } catch (NumberFormatException e) {
+            result = "Incorrect value(s)!";
+            resetBean();
+        }
+        System.out.println("X: " + plotX + "\nY: " + plotY + "\nR: " + plotR + "\nResult: " + result);
+        //manager.addDot(Double.parseDouble(plotX),  Double.parseDouble(plotY),  Integer.getInteger(plotR), result);
         resetBean();
     }
 

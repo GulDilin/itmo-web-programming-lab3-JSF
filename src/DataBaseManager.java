@@ -27,6 +27,7 @@ public class DataBaseManager {
                 isConnect = true;
 
             } catch (JSchException e) {
+                e.printStackTrace();
                 this.lPort += 15;
                 System.out.println("SSH tunneling error. Trying new local port: " + this.lPort);
                 System.out.println(i);
@@ -43,6 +44,7 @@ public class DataBaseManager {
             connection = DriverManager.getConnection("jdbc:postgresql://localhost:" + lPort + "/" + dbName, user, password);
             statement = connection.createStatement();
             System.out.println("Database connected");
+            System.out.println(statement.executeQuery(BDQuerys.GET_ALL.getTextQuery()));
         } catch (ClassNotFoundException e) {
             System.out.println("Cant load Driver class");
             e.printStackTrace();
@@ -108,7 +110,9 @@ public class DataBaseManager {
     public boolean addDot(double x, double y, int r, String result) {
         try {
             if (statement != null) {
-                statement.execute("INSERT into dots (x, y, r, result) VALUES (" + x + ", " + y + ", " + r + ", \''" + result + "\''");
+                String insert = "INSERT into dots VALUES(" + x + ", " + y + ", " + r + ", \'" + result + "\')";
+                System.out.println(insert);
+                statement.execute(insert);
                 return true;
             } else return false;
         } catch (SQLException e) {

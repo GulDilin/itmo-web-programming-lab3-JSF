@@ -20,7 +20,7 @@ public class ControllerBean {
     private DataBaseManager manager = null;
 
     public ControllerBean() {
-        manager = new DataBaseManager("studs", 8454);
+        manager = new DataBaseManager("studs", 5454);
     }
 
     public void checkArea(String y) {
@@ -54,7 +54,9 @@ public class ControllerBean {
             resetBean();
         }
         System.out.println("X: " + plotX + "\nY: " + plotY + "\nR: " + plotR + "\nResult: " + result);
-        //manager.addDot(Double.parseDouble(plotX),  Double.parseDouble(plotY),  Integer.getInteger(plotR), result);
+        if (manager != null) {
+            manager.addDot(Double.parseDouble(plotX), Double.parseDouble(plotY), Integer.parseInt(plotR), result);
+        }
         resetBean();
     }
 
@@ -74,7 +76,7 @@ public class ControllerBean {
         return x;
     }
 
-    public void setY(String y){
+    public void setY(String y) {
         this.y = y;
     }
 

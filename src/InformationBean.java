@@ -8,9 +8,9 @@ import javax.faces.bean.RequestScoped;
 public class InformationBean {
 
 //    @ManagedProperty(value = "#{name}")
-    private String name = "Гурин Евгений Иванович и Ефаринов Павел";
+    private String name = "Гурин Евгений и Ефаринов Павел";
     private String groupName = "P3212";
-    private String var = "Вариант";
+    private String var = "Вариант 1320471";
 
     public InformationBean(){
 

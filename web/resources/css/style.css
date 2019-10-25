@@ -16,7 +16,12 @@ body{
 
 }
 
-
+#clock {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 50vh;
+    font-family: 'Pacifico', cursive;
+}
 
 body, html, p, #footer, div {
 	width: 100%;

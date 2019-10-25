@@ -31,10 +31,9 @@ public class ControllerBean {
             result = AreaValidator.checkArea(x, y, r);
         } catch (NumberFormatException e) {
             result = "Incorrect value(s)!";
-            resetBean();
         }
         System.out.println("X: " + x + "\nY: " + y + "\nR: " + r + "\nResult: " + result);
-        //manager.addDot(Double.parseDouble(x),  Double.parseDouble(y),  Integer.getInteger(x), result);
+        manager.addDot(Double.parseDouble(x),  Double.parseDouble(y),  Integer.parseInt(r), result);
         resetBean();
     }
 
@@ -51,7 +50,6 @@ public class ControllerBean {
             result = AreaValidator.checkArea(plotX, plotY, plotR);
         } catch (NumberFormatException e) {
             result = "Incorrect value(s)!";
-            resetBean();
         }
         System.out.println("X: " + plotX + "\nY: " + plotY + "\nR: " + plotR + "\nResult: " + result);
         if (manager != null) {

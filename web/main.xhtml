@@ -58,12 +58,14 @@
                 </div>
             </h:form>
             <ui:include src="template/plot.xhtml"></ui:include>
+            <ui:include src="template/table.xhtml"></ui:include>
         </ui:define>
     </ui:composition>
+    <script type="text/javascript">
+        disableButtons(true);
+        validCB();
+    </script>
 </h:body>
-<script type="text/javascript">
-    disableButtons(true);
-    validCB();
-</script>
+
 
 </html>

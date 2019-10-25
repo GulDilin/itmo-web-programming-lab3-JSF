@@ -6,18 +6,26 @@ import javax.faces.bean.ManagedBean;
 public class DBBean {
 
     private DataBaseManager manager = null;
-    private String resultAll;
+    private String resultAllDot;
+    private String resultAllTable;
 
     public DBBean(){
         manager = new DataBaseManager("studs", 8454);
     }
 
-    public String getResultAll() {
-        return manager.getAll();
+    public String getResultAllDot() {
+        return manager.getAll(false);
+    }
+    public String getResultAllTable() {
+        return manager.getAll(true);
     }
 
-    public void setResultAll(String resultAll) {
-        this.resultAll = resultAll;
+    public void setResultAllDot(String resultAllDot) {
+        this.resultAllDot = resultAllDot;
+    }
+
+    public void setResultAllTable(String resultAllTable) {
+        this.resultAllTable = resultAllTable;
     }
 
     public boolean addDot(String s){

@@ -53,7 +53,7 @@ public class DataBaseManager {
         }
     }
 
-    public String getAll() {
+    public String getAll(boolean isTable) {
         String result = "";
         String x;
         String y;
@@ -77,13 +77,12 @@ public class DataBaseManager {
                         x_dot = (int) Math.round(Double.parseDouble(x) * 120 / r_dot + 150);
                         y_dot = (int) Math.round(-Double.parseDouble(y) * 120 / r_dot + 150);
 
-                        if (res.equals("true") || res.equals("false")) {
-                            result += "<circle r=\"3\" cx=\""; //37\" cy=\"61\" id=\"dot\" stroke=\"#AD2D2D\" fill=\"#AD2D2D\" class=\"4\"></circle>"
-                            result += x_dot + "\" cy=\"";
-                            result += y_dot + "\" class=\"";
-                            result += r + "\" ";
-                            result += res.equals("false") ? "stroke=\"green\" fill=\"green\"" : "stroke=\"#AD2D2D\" fill=\"#AD2D2D\"";
-                            result += "></circle>\n";
+                        if (!isTable) {
+                            if (res.toLowerCase().equals("true") || res.toLowerCase().equals("false")) {
+                                result += dotString(String.valueOf(x_dot), String.valueOf(y_dot), r, res) + "\n";
+                            }
+                        } else {
+                            result += trString(x, y, r, res) + "\n";
                         }
                     } catch (NumberFormatException ex) {
 
@@ -119,5 +118,19 @@ public class DataBaseManager {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public String dotString(String x, String y, String r, String res){
+        return "<circle r=\"3\" cx=\"" + x + "\" cy=\"" + y + "\" class=\"" +  r + "\" "
+                + (res.equals("false")?"stroke=\"green\" fill=\"green\"":"stroke=\"#AD2D2D\" fill=\"#AD2D2D\"")
+                + "></circle>";
+    }
+
+    public String trString(String x, String y, String r, String result) {
+        return "<tr>"+tdString(x)+ tdString(y) + tdString(r)+ tdString(result)+"</tr>";
+    }
+
+    private String tdString(Object s){
+        return String.format("<td>%s</td>",s.toString());
     }
 }

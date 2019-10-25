@@ -1,7 +1,9 @@
-.table-container{
+.table-container, #res-table{
 	width: 100%;
+	padding: 10px;
 }
 .res-table {
+	width: 100%;
 	background: #B1AEAE;
 	line-height: 2;
 	text-transform: uppercase;

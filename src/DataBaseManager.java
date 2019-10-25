@@ -65,6 +65,12 @@ public class DataBaseManager {
         try {
             if (statement != null) {
                 result = "";
+                if (isTable) {
+                    result += "<div class=\"table-container\">\n" +
+                            "<table class=\"res-table\" id=\"table\">\n" +
+                            "<caption>Табличка</caption>\n" +
+                            "<tr><th>X</th><th>Y</th><th>R</th><th>RESULT</th></tr>\n";
+                }
                 ResultSet rs = statement.executeQuery(BDQuerys.GET_ALL.getTextQuery());
                 while (rs.next()) {
                     try {
@@ -88,10 +94,15 @@ public class DataBaseManager {
 
                     }
                 }
+                if (isTable) {
+                    result += "</table>\n" +
+                            "        </div>";
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return result;
     }
 

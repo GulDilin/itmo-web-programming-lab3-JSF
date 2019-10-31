@@ -56,6 +56,9 @@
                     <h:commandButton update="res-table" action="#{controller.checkArea('1.5')}" value="1.5"></h:commandButton>
                     <h:commandButton update="res-table" action="#{controller.checkArea('2')}" value="2"></h:commandButton>
                 </div>
+                <div class="clear-button-container" style="text-align: center;">
+                    <h:commandButton update="res-table" style=" background: salmon" value="clear" action="#{db.deleteAll}"></h:commandButton>
+                </div>
             </h:form>
             <ui:include src="template/plot.xhtml"></ui:include>
             <ui:include src="template/table.xhtml"></ui:include>

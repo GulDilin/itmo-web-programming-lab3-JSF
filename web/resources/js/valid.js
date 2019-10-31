@@ -79,7 +79,7 @@ function getR() {
 }
 
 function disableButtons(isDisabled) {
-    let buttonsList = document.querySelectorAll("input[type=submit]");
+    let buttonsList = document.querySelectorAll(".form-buttons input[type=submit]");
     console.log(" ");
     buttonsList.forEach(function (button) {
         button.disabled = isDisabled;

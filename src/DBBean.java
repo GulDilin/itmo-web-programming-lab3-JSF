@@ -9,13 +9,14 @@ public class DBBean {
     private String resultAllDot;
     private String resultAllTable;
 
-    public DBBean(){
+    public DBBean() {
         manager = new DataBaseManager("studs", 8454);
     }
 
     public String getResultAllDot() {
         return manager.getAll(false);
     }
+
     public String getResultAllTable() {
         return manager.getAll(true);
     }
@@ -28,7 +29,7 @@ public class DBBean {
         this.resultAllTable = resultAllTable;
     }
 
-    public boolean addDot(String s){
+    public boolean addDot(String s) {
         if (s.equals("")) return false;
         try {
             String[] vals = s.split(" ");
@@ -37,8 +38,13 @@ public class DBBean {
             double y = Double.parseDouble(vals[1]);
             int r = Integer.getInteger(vals[2]);
             return manager.addDot(x, y, r, "ну и срань");
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    public void deleteAll() {
+        if (manager != null)
+            manager.deleteAll();
     }
 }
